@@ -2,7 +2,7 @@
 
 class DtbServer {
 
-    private static $info_string = "host=localhost port=5432 dbname=dbpin1 user=postgres password=123";
+    private static $info_string = "host=localhost port=5432 dbname=dbpin1 user=postgres password=postgres";
     private $connection;
 
     public function set($prp, $value) {

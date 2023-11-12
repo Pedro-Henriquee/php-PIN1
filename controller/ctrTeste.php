@@ -22,5 +22,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'listAll') {
     $result = $objTbRelatorio->listAll();
 
     print_r($result);
+
 }
 ?>
