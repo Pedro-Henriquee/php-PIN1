@@ -49,7 +49,7 @@ class TbSolicitacao {
                             '".$objTbSolicitacao->get("flstatus")."',
                             '".$objTbSolicitacao->get("dtcriacao")."',
                             '".$objTbSolicitacao->get("dtmovimentacao")."',
-                            ".$objTbSolicitacao->get("dsobservacao").",
+                            '".$objTbSolicitacao->get("dsobservacao")."',
                             ".$objTbSolicitacao->get("idpedido")."
                         )";
 
@@ -71,7 +71,7 @@ class TbSolicitacao {
                         flstatus = '".$objTbSolicitacao->get("flstatus")."',
                         dtcriacao = '".$objTbSolicitacao->get("dtcriacao")."',
                         dtmovimentacao = '".$objTbSolicitacao->get("dtmovimentacao")."',
-                        dsobservacao = ".$objTbSolicitacao->get("dsobservacao").",
+                        dsobservacao = '".$objTbSolicitacao->get("dsobservacao")."',
                         idpedido = ".$objTbSolicitacao->get("idpedido")."
                     WHERE
                         idsolicitacao = ".$objTbSolicitacao->get("idsolicitacao")."";

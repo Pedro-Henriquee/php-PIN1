@@ -65,7 +65,7 @@ class TbCliente{
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "UPDATE 
+        $strQuery = "UPDATE
                         shsistema.tbcliente
                     SET
                             dstelefone='".$objTbCliente->get("dstelefone")."',
@@ -77,7 +77,7 @@ class TbCliente{
                             dsemail_responsavel='".$objTbCliente->get("dsemail_responsavel")."',
                             dscpf_responsavel='".$objTbCliente->get("dscpf_responsavel")."
                     WHERE
-                            idcliente='".$objTbCliente->get("idcliente")."";
+                            idcliente=".$objTbCliente->get("idcliente")."";
         $result=$objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
 
@@ -87,13 +87,13 @@ class TbCliente{
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "DELETE FROM 
+        $strQuery = "DELETE FROM
                         shsistema.tbcliente
                     WHERE
                         idcliente=".$idCliente;
         $result=$objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
-        
+
         return $result;
     }
     public function listAll() {
@@ -106,7 +106,7 @@ class TbCliente{
                         shsistema.tbcliente";
         $result=$objDtbServer->runQuery($strQuery);
         $arrResult=[];
-        while($row=pg_fetch_array($result)) {
+        while($row = pg_fetch_array($result)) {
             $arrResult[]=$this->loadObject($row);
         }
         $objDtbServer->desconectServer();
@@ -123,8 +123,10 @@ class TbCliente{
                     WHERE
                         idcliente=".$idCliente;
         $result=$objDtbServer->runQuery($strQuery);
+
         $arrResult=[];
-        while($row=pg_fetch_array($result)) {
+
+        while($row = pg_fetch_array($result)) {
             $arrResult=$this->loadObject($row);
         }
         $objDtbServer->desconectServer();

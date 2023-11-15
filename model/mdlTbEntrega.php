@@ -23,7 +23,7 @@ class TbEntrega{
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "INSERT INTO 
+        $strQuery = "INSERT INTO
                         shsistema.tbentrega
                         (
                             flstatus,
@@ -45,26 +45,26 @@ class TbEntrega{
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "UPDATE 
+        $strQuery = "UPDATE
                         shsistema.tbentrega
                     SET
                         flstatus'".$objTbEntrega->get("flstatus")."',
                         dshistorico'".$objTbEntrega->get("dshistorico")."',
-                        dtprevisao'".$objTbEntrega->get("dtprevisao")."
+                        dtprevisao'".$objTbEntrega->get("dtprevisao")."'
                     WHERE
-                        identrega'".$objTbEntrega->get("identrega")."";
+                        identrega = ".$objTbEntrega->get("identrega")."";
         $result = $objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
-    
+
         return $result;
     }
     public function delete($idEntrega) {
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "DELETE FROM 
+        $strQuery = "DELETE FROM
                         shsistema.tbentrega
-                    WHERE 
+                    WHERE
                         identrega = ".$idEntrega;
         $result = $objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
@@ -85,6 +85,7 @@ class TbEntrega{
         while($row = pg_fetch_array($result)) {
             $arrResult = $this->loadObject($row);
         }
+
         $objDtbServer->desconectServer();
         return $arrResult;
     }
@@ -94,16 +95,19 @@ class TbEntrega{
 
         $strQuery = "SELECT
                         *
-                    FROM 
+                    FROM
                         shsistema.tbentrega
                     WHERE
                         identrega = ".$idEntrega;
+
         $result = $objDtbServer->runQuery($strQuery);
+
         $arrResult=[];
 
         while($row = pg_fetch_array($result)) {
             $arrResult = $this->loadObject($row);
         }
+
         $objDtbServer->desconectServer();
         return $arrResult;
     }

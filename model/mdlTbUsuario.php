@@ -42,7 +42,7 @@ class TbUsuario {
                         )";
         $result= $objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
-        
+
         return $result;
     }
     public function update($objTbUsuario) {
@@ -52,12 +52,12 @@ class TbUsuario {
         $strQuery = "UPDATE
                         shsistema.tbusuario
                     SET
-                        dsnome'".$objTbUsuario->get("dsnome")."',
-                        dscpf'".$objTbUsuario->get("dscpf")."',
-                        dslogin'".$objTbUsuario->get("dslogin")."',
-                        dssenha'".$objTbUsuario->get("dssenha")."
+                        dsnome = '".$objTbUsuario->get("dsnome")."',
+                        dscpf = '".$objTbUsuario->get("dscpf")."',
+                        dslogin = '".$objTbUsuario->get("dslogin")."',
+                        dssenha = '".$objTbUsuario->get("dssenha")."'
                     WHERE
-                        idusuario='".$objTbUsuario->get("idusuario")."";
+                        idusuario= ".$objTbUsuario->get("idusuario")."";
         $result=$objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
 
@@ -70,7 +70,7 @@ class TbUsuario {
         $strQuery = "DELETE FROM
                         shsistema.tbusuario
                     WHERE
-                        idusuario=".$idUsuario;
+                        idusuario = ".$idUsuario;
         $result= $objDtbServer->runQuery($strQuery);
         $objDtbServer->desconectServer();
         return $result;
@@ -84,10 +84,13 @@ class TbUsuario {
                     FROM
                         shsistema.tbusuario";
         $result= $objDtbServer->runQuery($strQuery);
+
         $arrResult=[];
-        while($row=pg_fetch_array($result)) {
+
+        while($row = pg_fetch_array($result)) {
             $arrResult[]=$this->loadObject($row);
         }
+
         $objDtbServer->desconectServer();
         return $arrResult;
     }
@@ -96,16 +99,19 @@ class TbUsuario {
         $objDtbServer->connectServer();
 
         $strQuery = "SELECT
-                        * 
+                        *
                     FROM
                         shsistema.tbusuario
                     WHERE
                         idusuario=".$idUsuario;
         $result= $objDtbServer->runQuery($strQuery);
+
         $arrResult=[];
+
         while($row=pg_fetch_array($result)) {
             $arrResult[]=$this->loadObject($row);
         }
+
         $objDtbServer->desconectServer();
         return $arrResult;
     }
