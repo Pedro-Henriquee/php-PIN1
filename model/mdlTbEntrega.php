@@ -107,7 +107,6 @@ class TbEntrega{
         while($row = pg_fetch_array($result)) {
             $arrResult = $this->loadObject($row);
         }
-
         $objDtbServer->desconectServer();
         return $arrResult;
     }

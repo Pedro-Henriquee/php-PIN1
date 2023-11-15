@@ -23,7 +23,7 @@ class TbRelatorio {
         $objTbRelatorio->set("hrgeracao", $row["hrgeracao"]);
         $objTbRelatorio->set("dtcomparativaorigem", $row["dtcomparativaorigem"]);
         $objTbRelatorio->set("dtcomparativadestino", $row["dtcomparativadestino"]);
-        
+
         return $objTbRelatorio;
     }
 
@@ -34,13 +34,13 @@ class TbRelatorio {
         $strQuery = "INSERT INTO
                         shsistema.tbrelatorio
                         (
-                            dtgeracao, 
-                            hrgeracao, 
-                            dtcomparativaorigem, 
+                            dtgeracao,
+                            hrgeracao,
+                            dtcomparativaorigem,
                             dtcomparativadestino
                         )
                     VALUES
-                        (   
+                        (
                             '".$objTbRelatorio->get("dtgeracao")."',
                             '".$objTbRelatorio->get("hrgeracao")."',
                             '".$objTbRelatorio->get("dtcomparativaorigem")."',
@@ -48,7 +48,7 @@ class TbRelatorio {
                         )";
 
         $result = $objDtbServer->runQuery($strQuery);
-        
+
         $objDtbServer->desconectServer();
 
         return $result;
@@ -58,7 +58,7 @@ class TbRelatorio {
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "UPDATE 
+        $strQuery = "UPDATE
                         shsistema.tbrelatorio
                     SET
                         dtgeracao = '".$objTbRelatorio->get("dtgeracao")."',
@@ -69,7 +69,7 @@ class TbRelatorio {
                         idrelatorio = ".$objTbRelatorio->get("idrelatorio")."";
 
         $result = $objDtbServer->runQuery($strQuery);
-       
+
         $objDtbServer->desconectServer();
 
         return $result;
@@ -79,13 +79,13 @@ class TbRelatorio {
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "DELETE FROM 
+        $strQuery = "DELETE FROM
                         shsistema.tbrelatorio
                     WHERE
                         idrelatorio = ".$idRelatorio;
 
         $result = $objDtbServer->runQuery($strQuery);
-        
+
         $objDtbServer->desconectServer();
 
         return $result;
@@ -95,9 +95,9 @@ class TbRelatorio {
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "SELECT 
+        $strQuery = "SELECT
                         *
-                    FROM 
+                    FROM
                         shsistema.tbrelatorio";
 
         $result = $objDtbServer->runQuery($strQuery);
@@ -117,9 +117,9 @@ class TbRelatorio {
         $objDtbServer = new DtbServer();
         $objDtbServer->connectServer();
 
-        $strQuery = "SELECT 
+        $strQuery = "SELECT
                         *
-                    FROM 
+                    FROM
                         shsistema.tbrelatorio
                     WHERE
                         idrelatorio = ". $idRelatorio;
@@ -133,7 +133,7 @@ class TbRelatorio {
 
         $objDtbServer->desconectServer();
 
-        return $arrResult;    
+        return $arrResult;
     }
 }
 ?>
