@@ -112,7 +112,7 @@ class TbSolicitacao {
         $result = $objDtbServer->runQuery($strQuery);
         $arrResult = [];
 
-        while($row = pg_fetch_array($result)) {
+        while($row = pg_fetch_assoc($result)) {
             $arrResult = $this->loadObject($row);
         }
 
@@ -135,7 +135,7 @@ class TbSolicitacao {
         $result = $objDtbServer->runQuery($strQuery);
         $arrResult = [];
 
-        while($row = pg_fetch_array($result)) {
+        while($row = pg_fetch_assoc($result)) {
             $arrResult = $this->loadObject($row);
         }
 

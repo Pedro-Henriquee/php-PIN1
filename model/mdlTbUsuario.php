@@ -87,7 +87,7 @@ class TbUsuario {
 
         $arrResult=[];
 
-        while($row = pg_fetch_array($result)) {
+        while($row = pg_fetch_assoc($result)) {
             $arrResult[]=$this->loadObject($row);
         }
 
@@ -108,7 +108,7 @@ class TbUsuario {
 
         $arrResult=[];
 
-        while($row=pg_fetch_array($result)) {
+        while($row=pg_fetch_assoc($result)) {
             $arrResult[]=$this->loadObject($row);
         }
 
